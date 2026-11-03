@@ -14,15 +14,17 @@ final class BlindIndex
     /**
      * compute
      */
-    public function compute()
+    public function compute(string $value, ?string $key = null): string
     {
-        return null;
+        $key ??= bin2hex(random_bytes(32));
+        return hash_hmac("sha256", $value, $key);
     }
     /**
      * verify
      */
-    public function verify()
+    public function verify(string $value, string $index, ?string $key = null): bool
     {
-        return null;
+        $expected = $this->compute($value, $key);
+        return hash_equals($expected, $index);
     }
 }
