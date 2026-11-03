@@ -18,7 +18,7 @@ use Tavaan\Engine\Crypt\Exceptions\KeyMissingException;
  * @api 1.0
  * @see docs/03-engines/crypt.md
  */
-final class Crypt implements \Tavaan\Core\Contracts\Encryption\EncrypterInterface
+final class Crypt implements \Tavaan\Engine\Crypt\Contracts\EncrypterInterface
 {
     private const CIPHER = 'aes-256-gcm';
 
