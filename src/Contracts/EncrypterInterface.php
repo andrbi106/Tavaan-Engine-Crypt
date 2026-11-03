@@ -12,52 +12,31 @@ namespace Tavaan\Engine\Crypt\Contracts;
  */
 interface EncrypterInterface
 {
-    /**
-     * متد encrypt.
-     *
-     * @return mixed
-     */
-    public function encrypt(/* ... */): mixed;
+    public function encrypt(string $plaintext, string $aad = ''): string;
+
+    public function decrypt(string $payload, string $aad = ''): string;
+
+    public function encryptString(string $value): string;
+
+    public function decryptString(string $payload): string;
 
     /**
-     * متد decrypt.
-     *
-     * @return mixed
+     * @param array<string, mixed> $data
      */
-    public function decrypt(/* ... */): mixed;
+    public function encryptJson(array $data, string $aad = ''): string;
 
     /**
-     * متد encryptString.
-     *
-     * @return mixed
+     * @return array<string, mixed>
      */
-    public function encryptString(/* ... */): mixed;
+    public function decryptJson(string $payload, string $aad = ''): array;
 
-    /**
-     * متد encryptJson.
-     *
-     * @return mixed
-     */
-    public function encryptJson(/* ... */): mixed;
+    public function hmac(string $data, string $context = ''): string;
 
-    /**
-     * متد decryptJson.
-     *
-     * @return mixed
-     */
-    public function decryptJson(/* ... */): mixed;
+    public function deriveKey(string $ikm, string $info, int $length = 32, string $salt = ''): string;
 
-    /**
-     * متد hmac.
-     *
-     * @return mixed
-     */
-    public function hmac(/* ... */): mixed;
+    public function sign(string $payload, ?string $privateKey = null): string;
 
-    /**
-     * متد deriveKey.
-     *
-     * @return mixed
-     */
-    public function deriveKey(/* ... */): mixed;
+    public function verify(string $payload, string $signature, string $publicKey): bool;
+
+    public function generateKeyPair(): array;
 }

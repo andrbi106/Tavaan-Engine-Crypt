@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-/*| پیام‌های en برای موتور crypt */
-
 return [
-    'error_default' => 'Unknown error (crypt)',
-    'not_configured' => 'Engine not configured (crypt)',
+    'error_encrypt' => 'Encryption failed.',
+    'error_decrypt' => 'Decryption failed. Data may have been tampered with.',
+    'error_invalid_format' => 'Invalid payload format.',
+    'error_key_missing' => 'Key version {0} not found.',
 ];
