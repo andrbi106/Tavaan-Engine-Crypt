@@ -1,0 +1,36 @@
+<?php
+
+declare(strict_types=1);
+
+/*|--------------------------------------------------------------------------
+ | Crypt Engine Configuration
+ |--------------------------------------------------------------------------
+ |
+ | پیکربندی موتور crypt — همهٔ کلیدهای مستندشده در `docs/03-engines/crypt.md` بخش «پیکربندی».
+ |
+ |@see https://github.com/Derogaramin/Tavaan-Doc/blob/main/docs/03-engines/crypt.md
+ */
+
+return [
+    /*| پیش‌فرض موتور (driver/store یا حالت فعال) */
+    'default' => env('CRYPT_DEFAULT', 'default'),
+
+    /*| کلید کش (در صورت استفاده) */
+    'prefix' => env('CRYPT_PREFIX', 'crypt:'),
+
+    /*| تنظیمات لاگ */
+    'log' => [
+        'channel' => env('CRYPT_LOG_CHANNEL', 'crypt'),
+    ],
+
+    /*| Facade */
+    'facade' => [
+        'name' => 'Crypt',
+        'accessor' => 'encrypter',
+    ],
+
+    /*| سایر کلیدها (طبق مستندات) */
+    'options' => [
+        // TODO: کلیدهای اضافی طبق سند §۶ (پیکربندی)
+    ],
+];
