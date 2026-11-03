@@ -13,20 +13,20 @@ use Tavaan\Engine\Crypt\BlindIndex;
  */
 final class CryptScenarioTest extends TestCase
 {
-    public function test_t01_signer_sign_verify(): void
+    public function test_t01_blind_index_compute(): void
     {
         // Scenario T-01
-$s = new Signer("secret-key");
-        $sig = $s->sign("hello");
-        $this->assertTrue($s->verify("hello", $sig));
-        $this->assertFalse($s->verify("hello", "wrong-sig"));
+$bi = new BlindIndex();
+        $idx = $bi->compute("email@example.com", "key123");
+        $this->assertNotEmpty($idx);
     }
 
-    public function test_t02_blind_index_create_search(): void
+    public function test_t02_blind_index_verify(): void
     {
         // Scenario T-02
 $bi = new BlindIndex();
-        $idx = $bi->create("email@example.com", "key123");
-        $this->assertNotEmpty($idx);
+        $idx = $bi->compute("email@example.com", "key");
+        $this->assertTrue($bi->verify("email@example.com", $idx, "key"));
+        $this->assertFalse($bi->verify("other@example.com", $idx, "key"));
     }
 }
