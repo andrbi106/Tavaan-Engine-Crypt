@@ -9,7 +9,7 @@ use Tavaan\Core\Contracts\Console\CommandInterface;
 /**
  * key:generate command.
  */
-final class Key_generateCommand implements CommandInterface
+final class KeyGenerateCommand implements CommandInterface
 {
     public function name(): string
     {

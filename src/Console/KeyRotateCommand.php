@@ -9,7 +9,7 @@ use Tavaan\Core\Contracts\Console\CommandInterface;
 /**
  * key:rotate command.
  */
-final class Key_rotateCommand implements CommandInterface
+final class KeyRotateCommand implements CommandInterface
 {
     public function name(): string
     {
