@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tavaan\Engine\Crypt\Tests\Feature;
 
-use PHPUnit\Framework\TestCase;
+use Tavaan\Testing\TestCase;
 use Tavaan\Engine\Crypt\Encrypter;
 use Tavaan\Engine\Crypt\KeyRing;
 use Tavaan\Engine\Crypt\CryptServiceProvider;
