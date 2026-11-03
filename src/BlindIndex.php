@@ -16,7 +16,6 @@ final class BlindIndex
      */
     public function compute(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
     /**
@@ -24,7 +23,6 @@ final class BlindIndex
      */
     public function verify(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
 }

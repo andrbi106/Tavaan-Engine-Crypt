@@ -16,7 +16,6 @@ final class Signer
      */
     public function sign(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
     /**
@@ -24,7 +23,6 @@ final class Signer
      */
     public function verify(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
     /**
@@ -32,7 +30,6 @@ final class Signer
      */
     public function generateKeyPair(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
 }
