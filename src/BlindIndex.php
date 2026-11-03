@@ -14,14 +14,14 @@ final class BlindIndex
     /**
      * compute
      */
-    public function compute(/* ... */): mixed
+    public function compute()
     {
         return null;
     }
     /**
      * verify
      */
-    public function verify(/* ... */): mixed
+    public function verify()
     {
         return null;
     }

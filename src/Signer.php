@@ -14,21 +14,21 @@ final class Signer
     /**
      * sign
      */
-    public function sign(/* ... */): mixed
+    public function sign()
     {
         return null;
     }
     /**
      * verify
      */
-    public function verify(/* ... */): mixed
+    public function verify()
     {
         return null;
     }
     /**
      * generateKeyPair
      */
-    public function generateKeyPair(/* ... */): mixed
+    public function generateKeyPair()
     {
         return null;
     }
