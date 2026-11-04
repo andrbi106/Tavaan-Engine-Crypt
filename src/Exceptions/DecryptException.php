@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Tavaan\Engine\Crypt\Exceptions;
 
+use Tavaan\Core\Exceptions\TavaanException;
+
 use RuntimeException;
 
 /**
  * خطای رمزگشایی (مثل payload نامعتبر، tamper detection).
  */
-final class DecryptException extends RuntimeException
+final class DecryptException extends TavaanException
 {
     public static function invalidFormat(): self
     {
