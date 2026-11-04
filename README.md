@@ -2,6 +2,8 @@
 
 > **رمزنگاری** — موتور Crypt در فریمورک تَوان
 
+این موتور از کلاس پایهٔ `Engine` (در [Tavaan-Engine-Core](https://github.com/andrbi106/Tavaan-Engine-Core)) ارث می‌برد.
+
 ## مشخصات
 
 | فیلد | مقدار |
@@ -11,69 +13,60 @@
 | عنوان فارسی | رمزنگاری |
 | نسخه | `0.1.0` |
 | namespace | `Tavaan\Engine\Crypt` |
-| نوع | `engine` |
-| Facade | `Crypt` (accessor: `encrypter`) |
+| کلاس موتور | `Tavaan\Engine\Crypt\CryptEngine` |
+| Facade | Crypt (`encrypter`) |
 
-## قراردادها (Contracts)
+## کلاس موتور
 
-این موتور قراردادهای زیر را ارائه می‌دهد:
+```php
+namespace Tavaan\Engine\Crypt;
 
-- `Tavaan\Engine\Crypt\Contracts\EncrypterInterface`
-- `Tavaan\Engine\Crypt\Contracts\HasherInterface`
+use Tavaan\EngineCore\Engine as BaseEngine;
+use Tavaan\EngineCore\Contracts\EngineManifestInterface;
 
-## خطاها (Exceptions)
+final class CryptEngine extends BaseEngine
+{
+    public function __construct(EngineManifestInterface $manifest)
+    {
+        parent::__construct($manifest);
+    }
 
-- `Tavaan\Engine\Crypt\Exceptions\DecryptException`
-- `Tavaan\Engine\Crypt\Exceptions\EncryptionException`
-- `Tavaan\Engine\Crypt\Exceptions\KeyMissingException`
+    public function register(ContainerInterface $container): void
+    {
+        parent::register($container);
+        // bindingهای اختصاصی موتور
+    }
 
-## Facadeها
+    public function boot(): void
+    {
+        parent::boot();
+    }
+}
+```
 
-- `Tavaan\Engine\Crypt\Facades\Crypt`
-- `Tavaan\Engine\Crypt\Facades\Hash`
+**فایل:** `src/CryptEngine.php`
 
-## کلاس‌های اصلی
+## وابستگی‌ها
 
-- `src/BlindIndex.php`
-- `src/Console/KeyGenerateCommand.php`
-- `src/Crypt.php`
-- `src/CryptServiceProvider.php`
-- `src/Encrypter.php`
-- `src/KeyRing.php`
-- `src/Signer.php`
+**موتورهای مورد‌نیاز:** `config`
 
 ## Service Providerها
 
 - `Tavaan\Engine\Crypt\CryptServiceProvider`
 
-## وابستگی‌ها
+## سه درگاه ارتباط با سایر موتورها
 
-**موتورهای مورد‌نیاز:**
-
-- `config`
-
-## پیکربندی
-
-- فایل پیکربندی: `config/crypt.php`
-- کلید: `crypt`
+| درگاه | الگو | متدهای convenience |
+|---|---|---|
+| Container | pull-based DI | `make()`, `bound()` |
+| Events | pub/sub | `dispatch()`, `listen()` |
+| EngineBus | point-to-point RPC | `call()`, `offer()` |
 
 ## نصب
 
 ```bash
 git clone https://github.com/andrbi106/Tavaan-Engine-Crypt.git
 ```
-
-این موتور بخشی از فریمورک تَوان است و معمولاً به‌صورت مستقیم نصب نمی‌شود،
-بلکه توسط [Tavaan-Core](https://github.com/andrbi106/Tavaan-Core) مدیریت می‌شود.
-
-## روابط با سایر مخازن
-
-| مخزن | نقش |
-|---|---|
-| **`andrbi106/Tavaan-Engine-Crypt`** (این مخزن) | موتور Crypt |
-| `andrbi106/Tavaan-Engine-Core` | ساختار پایه + درگاه ارتباط موتورها |
-| `andrbi106/Tavaan-Core` | اسکلت اپلیکیشن + همهٔ موتورها |
-| `Derogaramin/Tavaan-Framework` | فریمورک مادر (monorepo) |
 
 ## مجوز
 
